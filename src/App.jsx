@@ -7,9 +7,9 @@ import TodoComputed from "./componentes/iconos/TodoComputed";
 import TodoFilter from "./componentes/iconos/TodoFilter";
 
 const initialStateTodos = [
-    {id: 1, title: "aprender react", completed: false},
+    {id: 1, title: "aprender react", completed: true},
     {id: 2, title: "ir al cine", completed: false},
-    {id: 3, title: "ir a vender", completed: false},
+    {id: 3, title: "ir a vender", completed: true},
     {id: 4, title: "ir a comer", completed: false}
     
 
@@ -24,9 +24,18 @@ const App = () => {
     const newTodo={
         id: Date.now,
         title,
-        complete: false
+        complete: true
     }
     setTodos([...todos, newTodo])
+   }
+
+   const removeTodo = (id) => {
+    setTodos(todos.filter((todo) => todo.id !== id ))
+   }
+
+   const updateTodo = (id) => {
+    setTodos(todos.map(
+        todo => todo.id === id ? {...todo, completed: !todo.completed} : todo))
    }
 
     return (
@@ -34,11 +43,15 @@ const App = () => {
             <Header />
 
             <main className="container mx-auto px-4 mt-8">
-                <Form todoCreate={todoCreate}/>
+                <Form todoCreate={todoCreate} />
 
-                <TodoList todos={todos}/>
+                <TodoList
+                    todos={todos}
+                    removeTodo={removeTodo}
+                    updateTodo={updateTodo}
+                />
 
-                <TodoComputed />
+                <TodoComputed /> 
 
                 <TodoFilter />
             </main>
