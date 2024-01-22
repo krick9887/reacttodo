@@ -18,12 +18,12 @@ const Form = ({todoCreate}) => {
    }
 
     return(
-        <form onSubmit={handleSubmitAssTodo}  className="bg-white rounded-md overflow-hidden py-4 flex gap-4 items-center  ">
+        <form onSubmit={handleSubmitAssTodo}  className="dark:bg-gray-800 bg-white rounded-md overflow-hidden py-4 flex gap-4 items-center  ">
                     <span className="rounded-full border-2 w-5 h-5 inline-block "></span>
                     <input
                         type="text"
                         placeholder="crea una nueva tarea"
-                        className="w-full text-gray-400 outline-none"
+                        className="dark:bg-gray-800 w-full text-gray-400 outline-none"
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                     />

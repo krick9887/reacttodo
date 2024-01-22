@@ -51,7 +51,7 @@ const App = () => {
     const FilterTodos = () => {
         switch (filter) {
             case "all":
-                return todos;
+                return todos;  
             case "active":
                 return todos.filter((todo) => !todo.completed);
             case "completed":
@@ -62,10 +62,10 @@ const App = () => {
     };
 
     return (
-        <div className="bg-[url('./assets/images/bg-mobile-light.jpg')] bg-contain bg-no-repeat bg-gray-300 min-h-screen">
+        <div className="bg-[url('./assets/images/bg-mobile-light.jpg')] dark:bg-[url('./assets/images/bg-mobile-dark.jpg')] bg-contain bg-no-repeat bg-gray-300 min-h-screen dark:bg-gray-900">
             <Header />
 
-            <main className="container mx-auto px-4 mt-8">
+            <main className="container mx-auto px-4 mt-8 ">
                 <Form todoCreate={todoCreate} />
 
                 <TodoList
